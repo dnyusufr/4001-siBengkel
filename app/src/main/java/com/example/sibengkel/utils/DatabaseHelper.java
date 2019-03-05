@@ -12,7 +12,7 @@ import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper implements Database {
     // Database Version
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 10;
 
     // Database Name
     private static final String DATABASE_NAME = DatabaseContents.DATABASE.toString();
@@ -36,8 +36,17 @@ public class DatabaseHelper extends SQLiteOpenHelper implements Database {
                 + "status INTEGER DEFAULT 1,"
                 + "date_added DATETIME"
                 + ");");
-
         Log.d("CREATE DATABASE", "Create " + DatabaseContents.TABLE_USERS + " Successfully.");
+
+        db.execSQL("CREATE TABLE " + DatabaseContents.TABLE_BOOK + "("
+                + "_id INTEGER PRIMARY KEY,"
+                + "email TEXT(32),"
+                + "tanggal TEXT(32),"
+                + "status INTEGER DEFAULT 1,"
+                + "date_added DATETIME"
+                + ");");
+
+        Log.d("CREATE DATABASE", "Create " + DatabaseContents.TABLE_BOOK + " Successfully.");
     }
 
     // Upgrading database
@@ -45,6 +54,7 @@ public class DatabaseHelper extends SQLiteOpenHelper implements Database {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Drop older table if existed
         db.execSQL("DROP TABLE IF EXISTS " + DatabaseContents.TABLE_USERS);
+        db.execSQL("DROP TABLE IF EXISTS " + DatabaseContents.TABLE_BOOK);
 
         // Create tables again
         onCreate(db);

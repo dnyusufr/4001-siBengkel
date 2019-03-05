@@ -1,4 +1,4 @@
-#Wed Feb 27 02:55:25 ICT 2019
-base.0=C\:\\Users\\DEN\\Desktop\\siBengkel2\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\8
+#Tue Mar 05 18:46:59 ICT 2019
+base.0=D\:\\Semester 6\\Capstone RPL\\new_clone\\4001-siBengkel\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\8
 path.0=classes.dex
 renamed.0=classes.dex
