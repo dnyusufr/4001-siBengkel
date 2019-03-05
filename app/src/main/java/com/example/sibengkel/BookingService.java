@@ -67,7 +67,6 @@ public class BookingService extends AppCompatActivity {
             return;
         }
 
-        // Store values at the time of the login attempt.
         String tgl = tgl1.getText().toString();
 
         boolean cancel = false;
