@@ -6,12 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sibengkel.controllers.BookController;
-import com.example.sibengkel.controllers.UserController;
 import com.example.sibengkel.utils.Database;
 import com.example.sibengkel.utils.DatabaseHelper;
 
@@ -19,7 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class ScheduleActivity extends AppCompatActivity {
+public class BookingService extends AppCompatActivity {
     private LoginActivity.UserLoginTask mAuthTask = null;
 
     TextView tgl1,email;
@@ -47,7 +45,7 @@ public class ScheduleActivity extends AppCompatActivity {
                 bulan = c.get(Calendar.MONTH);
                 hari = c.get(Calendar.DAY_OF_MONTH);
 
-                DatePickerDialog DatePicker = new DatePickerDialog(ScheduleActivity.this, new DatePickerDialog.OnDateSetListener() {
+                DatePickerDialog DatePicker = new DatePickerDialog(BookingService.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(android.widget.DatePicker view, int year, int month, int dayOfMonth) {
                         tgl1.setText(dayOfMonth + "/" + month + "/" + year);
@@ -86,7 +84,7 @@ public class ScheduleActivity extends AppCompatActivity {
         } else {
             ContentValues adminData = BookController.getInstance().getDataByTanggal(tgl);
             if (adminData != null) {
-                Toast.makeText(ScheduleActivity.this,
+                Toast.makeText(BookingService.this,
                         "Tanggal tidak kosong", Toast.LENGTH_LONG).show();
             }else {
             ContentValues content = new ContentValues();
@@ -97,7 +95,7 @@ public class ScheduleActivity extends AppCompatActivity {
 
                 int id = BookController.getInstance().Book(content);
                 if (id > 0) {
-                    Toast.makeText(ScheduleActivity.this,
+                    Toast.makeText(BookingService.this,
                             "Data sudah tersimpan", Toast.LENGTH_LONG).show();
                 }
             }
