@@ -19,6 +19,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.sibengkel.controllers.UserController;
+import com.example.sibengkel.utils.Database;
+import com.example.sibengkel.utils.DatabaseHelper;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -255,6 +259,7 @@ public class LoginActivity extends AppCompatActivity {
                 intent.putExtra(TAG_EMAIL, email);
                 if (admin != null) {
                     intent.putExtra(TAG_NAME, admin.getAsString("name"));
+                    intent.putExtra(TAG_EMAIL, admin.getAsString("email"));
                 }
                 finish();
                 startActivity(intent);
@@ -310,100 +315,100 @@ public class LoginActivity extends AppCompatActivity {
         passwordRepeat.setVisibility(View.GONE);
     }
 
-    private void attemptRegister() {
-        if (mAuthTask != null) {
-            return;
-        }
+        private void attemptRegister() {
+            if (mAuthTask != null) {
+                return;
+            }
 
-        // Reset errors.
-        mEmailView.setError(null);
-        mPasswordView.setError(null);
+            // Reset errors.
+            mEmailView.setError(null);
+            mPasswordView.setError(null);
 
-        // Store values at the time of the login attempt.
-        String email = mEmailView.getText().toString();
-        String password = mPasswordView.getText().toString();
-        String password_repeat = passwordRepeat.getText().toString();
-        String full_name = nameBox.getText().toString();
-        String phone = phoneBox.getText().toString();
-        String address = addressBox.getText().toString();
+            // Store values at the time of the login attempt.
+            String email = mEmailView.getText().toString();
+            String password = mPasswordView.getText().toString();
+            String password_repeat = passwordRepeat.getText().toString();
+            String full_name = nameBox.getText().toString();
+            String phone = phoneBox.getText().toString();
+            String address = addressBox.getText().toString();
 
-        boolean cancel = false;
-        View focusView = null;
+            boolean cancel = false;
+            View focusView = null;
 
-        // Check for a valid password, if the user entered one.
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
-            mPasswordView.setError(getString(R.string.error_invalid_password));
-            focusView = mPasswordView;
-            cancel = true;
-        }
-
-        if (!TextUtils.isEmpty(password_repeat) && !isPasswordValid(password_repeat)) {
-            passwordRepeat.setError(getString(R.string.error_invalid_password));
-            focusView = passwordRepeat;
-            cancel = true;
-        }
-
-        if (!password_repeat.equals(password)) {
-            passwordRepeat.setError(getString(R.string.error_invalid_password_repeat));
-            focusView = passwordRepeat;
-            cancel = true;
-        }
-
-        // Check for a valid email address.
-        if (TextUtils.isEmpty(email)) {
-            mEmailView.setError(getString(R.string.error_field_required));
-            focusView = mEmailView;
-            cancel = true;
-        } else if (!isEmailValid(email)) {
-            mEmailView.setError(getString(R.string.error_invalid_email));
-            focusView = mEmailView;
-            cancel = true;
-        } else {
-            ContentValues adminData = UserController.getInstance().getDataByEmail(email);
-            if (adminData != null) {
-                mEmailView.setError(getString(R.string.error_unavailable_email));
-                focusView = mEmailView;
+            // Check for a valid password, if the user entered one.
+            if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
+                mPasswordView.setError(getString(R.string.error_invalid_password));
+                focusView = mPasswordView;
                 cancel = true;
             }
-        }
 
-        if (TextUtils.isEmpty(full_name)) {
-            nameBox.setError(getString(R.string.error_field_required));
-            focusView = nameBox;
-            cancel = true;
-        }
+            if (!TextUtils.isEmpty(password_repeat) && !isPasswordValid(password_repeat)) {
+                passwordRepeat.setError(getString(R.string.error_invalid_password));
+                focusView = passwordRepeat;
+                cancel = true;
+            }
 
-        if (TextUtils.isEmpty(phone)) {
-            phoneBox.setError(getString(R.string.error_field_required));
-            focusView = phoneBox;
-            cancel = true;
-        }
-        if (TextUtils.isEmpty(address)) {
-            addressBox.setError(getString(R.string.error_field_required));
-            focusView = addressBox;
-            cancel = true;
-        }
+            if (!password_repeat.equals(password)) {
+                passwordRepeat.setError(getString(R.string.error_invalid_password_repeat));
+                focusView = passwordRepeat;
+                cancel = true;
+            }
 
-        if (cancel) {
-            focusView.requestFocus();
-        } else {
-            showProgress(true);
+            // Check for a valid email address.
+            if (TextUtils.isEmpty(email)) {
+                mEmailView.setError(getString(R.string.error_field_required));
+                focusView = mEmailView;
+                cancel = true;
+            } else if (!isEmailValid(email)) {
+                mEmailView.setError(getString(R.string.error_invalid_email));
+                focusView = mEmailView;
+                cancel = true;
+            } else {
+                ContentValues adminData = UserController.getInstance().getDataByEmail(email);
+                if (adminData != null) {
+                    mEmailView.setError(getString(R.string.error_unavailable_email));
+                    focusView = mEmailView;
+                    cancel = true;
+                }
+            }
 
-            ContentValues content = new ContentValues();
-            content.put("email", email);
-            content.put("name", full_name);
-            content.put("password", password);
-            content.put("phone", phone);
-            content.put("address", address);
-            content.put("date_added", getCurrentTime());
+            if (TextUtils.isEmpty(full_name)) {
+                nameBox.setError(getString(R.string.error_field_required));
+                focusView = nameBox;
+                cancel = true;
+            }
 
-            int id = UserController.getInstance().register(content);
-            if (id > 0) {
-                mAuthTask = new UserLoginTask(email, password);
-                mAuthTask.execute((Void) null);
+            if (TextUtils.isEmpty(phone)) {
+                phoneBox.setError(getString(R.string.error_field_required));
+                focusView = phoneBox;
+                cancel = true;
+            }
+            if (TextUtils.isEmpty(address)) {
+                addressBox.setError(getString(R.string.error_field_required));
+                focusView = addressBox;
+                cancel = true;
+            }
+
+            if (cancel) {
+                focusView.requestFocus();
+            } else {
+                showProgress(true);
+
+                ContentValues content = new ContentValues();
+                content.put("email", email);
+                content.put("name", full_name);
+                content.put("password", password);
+                content.put("phone", phone);
+                content.put("address", address);
+                content.put("date_added", getCurrentTime());
+
+                int id = UserController.getInstance().register(content);
+                if (id > 0) {
+                    mAuthTask = new UserLoginTask(email, password);
+                    mAuthTask.execute((Void) null);
+                }
             }
         }
-    }
 
     /**
      * Geting current time

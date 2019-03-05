@@ -718,7 +718,9 @@ id barrier
 id beginning
 id blocking
 id bottom
+id btnBook
 id btn_logout
+id button
 id buttonPanel
 id center
 id center_horizontal
@@ -740,6 +742,7 @@ id direct
 id disableHome
 id edit_query
 id email
+id emailTxt
 id email_login_form
 id email_sign_in_button
 id end
@@ -759,6 +762,8 @@ id icon_group
 id ifRoom
 id image
 id imageView
+id imageView2
+id inTanggal
 id info
 id invisible
 id italic
@@ -884,6 +889,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_login
 layout activity_main
+layout activity_schedule
 layout activity_splash_screen
 layout notification_action
 layout notification_action_tombstone

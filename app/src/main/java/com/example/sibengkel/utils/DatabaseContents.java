@@ -2,7 +2,8 @@ package com.example.sibengkel.utils;
 
 public enum DatabaseContents {
     DATABASE("loginsederhana.db"),
-    TABLE_USERS("tbl_users");
+    TABLE_USERS("tbl_users"),
+    TABLE_BOOK("tbl_book");
 
     private String name;
 
