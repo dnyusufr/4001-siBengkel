@@ -26,7 +26,7 @@
     <string name="permission_address">"Alamat diperlukan."</string>
     <string name="login_header_information">Silahkan Login jika telah memiliki akun atau register jika belum memiliki akun</string>
 
-    <string name="txt_welcome">Selamat datang</string>
+    <string name="txt_welcome">Welcome to siBengkel</string>
 
     <string name="btn_logout">Logout</string>
 </resources>
