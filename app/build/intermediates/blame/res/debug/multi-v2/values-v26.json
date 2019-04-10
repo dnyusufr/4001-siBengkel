@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Semester 6\\Capstone RPL\\new_clone\\4001-siBengkel\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v26\\values-v26.xml",
+            "outputFile": "D:\\Project\\New folder\\4001-siBengkel\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v26\\values-v26.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\DEll\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\669713dd226398637adb64953ec15043\\res\\values-v26\\values-v26.xml",
+                    "source": "C:\\Users\\faganesha\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5af1abe5607db33bd8f48ccfffd20d3a\\res\\values-v26\\values-v26.xml",
                     "from": {
                         "startLines": "2,3,4,8,12,16",
                         "startColumns": "4,4,4,4,4,4",

@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.fragment_home);
 
         txt_profile_name = (TextView) findViewById(R.id.txt_profile_name);
         txt_profile_name.setText(getIntent().getExtras().get("name").toString());

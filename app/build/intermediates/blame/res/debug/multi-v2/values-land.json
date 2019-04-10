@@ -1,16 +1,35 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Semester 6\\Capstone RPL\\new_clone\\4001-siBengkel\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
+            "outputFile": "D:\\Project\\New folder\\4001-siBengkel\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\DEll\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\669713dd226398637adb64953ec15043\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\faganesha\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5af1abe5607db33bd8f48ccfffd20d3a\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2,3,4",
                         "startColumns": "4,4,4",
                         "startOffsets": "55,125,196",
                         "endColumns": "69,70,67",
                         "endOffsets": "120,191,259"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\faganesha\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\fd6eff6a78c1d8bd11413ad9161443d8\\res\\values-land\\values-land.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "10",
+                        "endOffsets": "222"
+                    },
+                    "to": {
+                        "startLines": "5",
+                        "startColumns": "4",
+                        "startOffsets": "264",
+                        "endLines": "8",
+                        "endColumns": "10",
+                        "endOffsets": "431"
                     }
                 }
             ]
