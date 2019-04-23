@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_home);
 
+        //setnama
         txt_profile_name = (TextView) findViewById(R.id.txt_profile_name);
         txt_profile_name.setText(getIntent().getExtras().get("name").toString());
 
