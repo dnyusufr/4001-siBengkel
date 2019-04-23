@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         txt_profile_name = (TextView) findViewById(R.id.txt_profile_name);
         txt_profile_name.setText(getIntent().getExtras().get("name").toString());
 
+        //btnforlogout
         btn_logout = (Button) findViewById(R.id.btn_logout);
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
