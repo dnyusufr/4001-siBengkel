@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
 //        }
     };
 
+    //booking
     public void bookNow(View view){
         intent = new Intent(MainActivity.this, ScheduleActivity.class);
         intent.putExtra("email", getIntent().getExtras().get("email").toString());
