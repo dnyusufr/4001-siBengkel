@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    //declaration
     TextView txt_profile_name;
     Button btn_logout;
 
